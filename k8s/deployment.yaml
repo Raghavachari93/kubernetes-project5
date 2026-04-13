@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-ingress-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: python-ingress
+  template:
+    metadata:
+      labels:
+        app: python-ingress
+    spec:
+      containers:
+      - name: python-container
+        image: python-ingress-app:v1
+        ports:
+        - containerPort: 5000
+
